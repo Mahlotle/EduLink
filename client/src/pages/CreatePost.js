@@ -39,7 +39,7 @@ function CreatePost() {
             autoComplete="off"
             id="inputCreatePost"
             name="title"
-            placeholder="(Ex. Title...)"
+           // placeholder="(Ex. Title...)"
           />
 
           <label>Post: </label>
@@ -48,7 +48,7 @@ function CreatePost() {
             autoComplete="off"
             id="inputCreatePost"
             name="postText"
-            placeholder="(Ex. Post...)"
+           // placeholder="(Ex. Post...)"
           />
 
           <label>Username: </label>
@@ -57,7 +57,7 @@ function CreatePost() {
             autoComplete="off"
             id="inputCreatePost"
             name="username"
-            placeholder="(Ex. John123...)"
+           // placeholder="(Ex. John123...)"
           />
 
           <button type="submit">Create Post</button>

@@ -388,3 +388,94 @@ span {
 .comment:hover {
   background-color: #f1f1f1;  /* Slightly darker background on hover */
 }
+
+/*LOGIN CSS*/
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.userlabel, .passwordLable {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.loginButton {
+  padding: 10px;
+  background-color: #230a7e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.loginButton:hover {
+  background-color: #333;
+}
+
+/*REGISTRATION*/
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+}
+
+.regUser, .regPass {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+#inputCreatePost {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button.regButton {
+  padding: 10px;
+  background-color: #230a7e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button.regButton:hover {
+  background-color: #230a7e;
+}
+
+span {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+

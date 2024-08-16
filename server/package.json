@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mysql2": "^2.2.5",
-    "nodemon": "^2.0.22",
+    "mysql2": "^3.11.0",
+    "nodemon": "^3.1.4",
     "sequelize": "^6.6.2",
     "sequelize-cli": "^6.2.0"
   }
