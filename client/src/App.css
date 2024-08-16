@@ -308,7 +308,7 @@ span {
 
 .commentForm button {
   padding: 10px;
-  background-color: lightskyblue;
+  background-color: #3c3163;
   border: none;
   color: white;
   border-radius: 5px;
@@ -317,5 +317,74 @@ span {
 }
 
 .commentForm button:hover {
-  background-color: dodgerblue;
+  background-color:#3c3163;
+}
+
+/*COMMENT SECTION STYLING*/
+.rightSide {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.addCommentContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.inputBox {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-right: 10px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.inputBox:focus {
+  border-color:#3c3163;  /* Blue border on focus */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+.button {
+  background-color: #3c3163;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  background-color: #3c3163;  /* Darker blue on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.listOfContainer {
+  margin-top: 20px;
+}
+
+.comment {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.comment:hover {
+  background-color: #f1f1f1;  /* Slightly darker background on hover */
 }
