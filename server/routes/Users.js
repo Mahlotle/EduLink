@@ -3,6 +3,8 @@ const router = express.Router();
 const { Users } = require("../models");
 const bcrypt = require("bcrypt");// for hashing passwords
 
+const {sign} = require("jsonwebtoken");
+
 //REGISTRATION ROUTER
 router.post("/", async (req, res) => {
   const { username, password } = req.body;
@@ -29,8 +31,9 @@ router.post("/login", async (req, res) => {
     if (!match) {
       return res.json({ error: "Wrong Username And Password Combination" }); // Add return here
     }
-
-    res.json("YOU LOGGED IN!!!");
+//if everything pass redirect
+const accessToken= sign({username: user.username, id:user.id},"importantsecret");
+    res.json(accessToken);
   });
 });
 
