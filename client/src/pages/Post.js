@@ -23,7 +23,7 @@ const addComment = ()=>{
   axios.post("http://localhost:3001/comments", {commentBody: newComment , PostId: id ,} ,
     {
       headers: {
-        accessToken: sessionStorage.getItem("accessToken"),
+        accessToken: localStorage.getItem("accessToken"),
       }, 
     }
 
@@ -31,7 +31,7 @@ const addComment = ()=>{
     if (response.data.error) {
       console.log(response.data.error);
     } else {
- const commentToAdd = {commentBody: newComment};
+ const commentToAdd = {commentBody: newComment, username: response.data.username};
     setComments([...comments, commentToAdd])//(Array destructuring) basically means collect all the previous comments and add the new one to update
     setNewComment("");
     }
@@ -54,10 +54,18 @@ const addComment = ()=>{
         <button className="button" onClick = {addComment}>Reply</button>
 
         <div className="listOfContainer">
-          {comments.map((comment, key) => {
-            return <div key={key} className="comment"> {comment.commentBody} </div>
-          })}
-        </div>
+            {comments.map((comment, key) => {
+          return (
+           <div
+           key={key} className="comment">
+            <label className="usernameCss">{comment.username}:</label>
+              {comment.commentBody}
+          
+      </div>
+    );
+  })}
+</div>
+
       </div>
     </div>
   );

@@ -388,6 +388,15 @@ span {
 .comment:hover {
   background-color: #f1f1f1;  /* Slightly darker background on hover */
 }
+/* Styles for the username label */
+.usernameCss {
+  display: block; /* Makes the username label appear on a new line */
+  font-weight: 600; /* Bold username */
+  color: #333; /* Darker color for visibility */
+  font-size: 14px; /* Size of the username text */
+  margin-bottom: 4px; /* Space below the username */
+}
+
 
 /*LOGIN CSS*/
 .loginContainer {
