@@ -502,11 +502,13 @@ span {
 .navbar-logo {
   height: 50px; /* Adjust as needed */
   width: auto;
+  border-radius: 20px;
 }
 
 .navbar .nav-links {
   display: flex;
   align-items: center;
+ 
 }
 
 .navbar a {
