@@ -39,7 +39,7 @@ const accessToken= sign({username: user.username, id:user.id},"importantsecret")
 });
 
 //CHECKING VALID TOKEN
-router.get('/auth', validateToken, (req, res) => {
+router.get("/auth", validateToken, (req, res) => {
   res.json(req.user);
 });
 

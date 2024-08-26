@@ -10,6 +10,7 @@ import {AuthContext}from "./helpers/AuthContext";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import logo from './assets/logo.PNG';
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
       })
       .then((response) => {
         if (response.data.error) {
-          setAuthState({...authState, status: false});
+          setAuthState ({...authState, status: false});
         } else {
           setAuthState({ username: response.data.username, id: response.data.id , status: true, });
         }
@@ -44,7 +45,7 @@ function App() {
       <AuthContext.Provider value={{authState, setAuthState}}>
       <Router>
         <div className="navbar">
-
+        <div className="links">
         <Link to="/"> <img src={logo} alt="EduLink Logo" className="navbar-logo" />  </Link>
           <Link to="/"> Home</Link>
           <Link to="/about-us"> About us</Link>
@@ -56,7 +57,7 @@ function App() {
           <Link to="/registration"> Registration</Link>
           </>
         ) }
-
+          </div>
         <div className="loggedInContainer">
               <h1>{authState.username} </h1>
               {authState.status && <button onClick={logout}> Logout</button>}
@@ -74,6 +75,7 @@ function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="*" element={<PageNotFound/>} />
         </Routes>
       </Router>
       </AuthContext.Provider>

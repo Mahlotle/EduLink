@@ -573,3 +573,42 @@ span {
     margin-left: 0;
   }
 }
+
+/*FOOTER*/
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa; /* Light background for the footer */
+  padding: 10px 20px;
+  border-top: 1px solid #e0e0e0; /* Subtle border at the top */
+  border-radius: 0 0 5px 5px;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: bold;
+  color: white; /* Primary color for username text */
+  margin-right: auto; /* Pushes the username to the far left */
+}
+
+.buttons-and-likes {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between the like/unlike buttons and likes count */
+}
+
+.likeBttn, .unlikeBttn {
+  cursor: pointer;
+  color: white; /* Default button color */
+  transition: color 0.3s ease;
+}
+
+.likeBttn:hover, .unlikeBttn:hover {
+  color: #0056b3; /* Darker shade on hover */
+}
+
+label {
+  font-size: 14px;
+  color: #6c757d; /* Subtle text color for the likes count */
+}
