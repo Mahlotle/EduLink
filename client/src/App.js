@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import logo from './assets/logo.PNG';
 import PageNotFound from "./pages/PageNotFound";
+import Profile from "./pages/Profile";
 
 function AppContent() {
   const [authState, setAuthState] = useState({ username: "", id: 0, status: false });
@@ -40,8 +41,7 @@ function AppContent() {
     };
 
     checkAuth();
-  }, []); // No need to add `authState` to the dependency array if only set once.
-
+  }, []); 
   const logout = () => {
     localStorage.removeItem("accessToken");
     setAuthState({ username: "", id: 0, status: false });
@@ -86,6 +86,7 @@ function AppContent() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/profile/:id" element={<Profile /> } />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </AuthContext.Provider>

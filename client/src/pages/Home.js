@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Favorite from "@mui/icons-material/Favorite"; // Import the heart icon
+import { useNavigate, Link } from "react-router-dom"; // Import Link from react-router-dom
+import Favorite from "@mui/icons-material/Favorite";
 import { AuthContext } from "../helpers/AuthContext";
 
 function Home() {
@@ -13,10 +13,9 @@ function Home() {
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
 
-    // Check if the token is present
     if (!token) {
       console.warn("No access token found, redirecting to login.");
-      navigate("/login"); // Redirect to login if no token
+      navigate("/login");
       return;
     }
 
@@ -25,7 +24,6 @@ function Home() {
         headers: { accessToken: token },
       })
       .then((response) => {
-        // Sort posts by creation date in descending order
         const sortedPosts = response.data.listOfPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setListOfPosts(sortedPosts);
         setLikedPosts(response.data.likedPosts.map((like) => like.PostId));
@@ -34,12 +32,11 @@ function Home() {
         console.error("Error fetching posts:", error);
         if (error.response && error.response.status === 401) {
           console.warn("Unauthorized, redirecting to login.");
-          navigate("/login"); // Redirect on 401 error
+          navigate("/login");
         }
       });
   }, [navigate, authState.status]);
 
-  // LIKE A POST
   const likeAPost = (postId) => {
     const token = localStorage.getItem("accessToken");
     if (!token) {
@@ -70,7 +67,6 @@ function Home() {
             }
           })
         );
-        // Logic to change color when liked and disliked
         if (likedPosts.includes(postId)) {
           setLikedPosts(likedPosts.filter((id) => id !== postId));
         } else {
@@ -81,7 +77,7 @@ function Home() {
         console.error("Error liking post:", error);
         if (error.response && error.response.status === 401) {
           console.warn("Unauthorized, redirecting to login.");
-          navigate("/login"); // Redirect on 401 error
+          navigate("/login");
         }
       });
   };
@@ -101,7 +97,9 @@ function Home() {
               {value.postText}
             </div>
             <div className="footer">
-              <div className="username">{value.username}</div>
+              <div className="username">
+                <Link to={`/profile/${value.UserId}`}>{value.username}</Link> {/* Use Link component */}
+              </div>
               <div className="buttons">
                 <Favorite
                   onClick={() => {

@@ -31,7 +31,7 @@ function CreatePost() {
     axios.post("http://localhost:3001/posts", 
       data,{headers: { accessToken: localStorage.getItem("accessToken") },
     }).then((response) => {
-      navigate("/"); // Updated to use navigate instead of history.push
+      navigate("/"); 
     });
   };
 
