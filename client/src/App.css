@@ -489,14 +489,15 @@ span {
 }
 
 /*NEVBAR*/
-/* src/Navbar.css */
+/* Navbar */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #3c3163;
-  padding: 10px 20px;
+  background-color: #3c3163; /* Background color */
+  padding: 15px 25px; /* Increased padding for a more spacious look */
   color: white;
+  border-bottom: 2px solid #ffffff; /* Subtle bottom border for separation */
 }
 
 .navbar-logo {
@@ -505,48 +506,54 @@ span {
   border-radius: 20px;
 }
 
-.navbar .nav-links {
+.navbar .links {
   display: flex;
   align-items: center;
- 
 }
 
 .navbar a {
   color: white;
   text-decoration: none;
-  margin: 0 15px;
-  font-size: 16px; /* Adjust font size as needed */
+  margin: 0 20px; /* Increased margin for better spacing */
+  font-size: 18px; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  transition: color 0.3s, transform 0.3s;
 }
 
 .navbar a:hover {
+  color: #dcdcdc; /* Slightly lighter color on hover */
   text-decoration: underline;
+  transform: translateY(-2px); /* Subtle hover effect */
 }
 
 .navbar .loggedInContainer {
   display: flex;
   align-items: center;
-  margin-left: auto;
 }
 
 .navbar .loggedInContainer h1 {
   margin: 0;
-  font-size: 18px;
-  margin-right: 15px;
+  font-size: 20px; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  margin-right: 20px; /* Increased margin for better spacing */
 }
 
 .navbar .loggedInContainer button {
   background-color: #ffffff;
   color: #3c3163;
   border: none;
-  padding: 8px 15px;
+  padding: 10px 20px; /* Adjusted padding for a more comfortable button */
   cursor: pointer;
-  font-size: 14px;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
+  font-size: 16px; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  border-radius: 5px; /* Rounded corners for the button */
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
 .navbar .loggedInContainer button:hover {
-  background-color: #e0e0e0;
+  background-color: #f0f0f0; /* Slightly darker background on hover */
+  color: #3a2a5f; /* Slightly darker text color */
+  transform: translateY(-1px); /* Subtle hover effect */
 }
 
 .navbar .loggedInContainer button:focus {
@@ -559,20 +566,21 @@ span {
     align-items: flex-start;
   }
 
-  .navbar .nav-links {
+  .navbar .links {
     flex-direction: column;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Increased margin for spacing */
   }
 
   .navbar a {
-    margin: 5px 0;
+    margin: 10px 0; /* Increased margin for better spacing on mobile */
   }
 
   .navbar .loggedInContainer {
-    margin-top: 10px;
+    margin-top: 15px; /* Increased margin on mobile */
     margin-left: 0;
   }
 }
+
 
 /*FOOTER*/
 .footer {
@@ -598,17 +606,38 @@ span {
   gap: 10px; /* Space between the like/unlike buttons and likes count */
 }
 
-.likeBttn, .unlikeBttn {
+.likeBttn{
   cursor: pointer;
   color: white; /* Default button color */
   transition: color 0.3s ease;
 }
 
-.likeBttn:hover, .unlikeBttn:hover {
-  color: #0056b3; /* Darker shade on hover */
+.unlikeBttn {
+  cursor: pointer;
+  color: rgb(222, 11, 230); /* Default button color */
+  transition: color 0.3s ease;
 }
 
 label {
   font-size: 14px;
   color: #6c757d; /* Subtle text color for the likes count */
+}
+
+/*DELETE BUTTON*/
+.deleteButton {
+  background: none;
+  border: none;
+  color: #ff0000; /* Red color for delete action */
+  cursor: pointer;
+  font-size: 24px; /* Larger size for the icon */
+  transition: color 0.3s, transform 0.2s;
+}
+
+.deleteButton:hover {
+  color: #cc0000; /* Darker red on hover */
+  transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+.deleteButton:focus {
+  outline: none;
 }

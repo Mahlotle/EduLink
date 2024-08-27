@@ -1,31 +1,33 @@
-import React, { useEffect, useState ,useContext} from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
+import Favorite from "@mui/icons-material/Favorite"; // Import the heart icon
 import { AuthContext } from "../helpers/AuthContext";
 
 function Home() {
   const [listOfPosts, setListOfPosts] = useState([]);
   const [likedPosts, setLikedPosts] = useState([]);
   const navigate = useNavigate();
-  const {authState} = useContext(AuthContext);
+  const { authState } = useContext(AuthContext);
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
 
     // Check if the token is present
-    if (!authState.status) {
+    if (!token) {
       console.warn("No access token found, redirecting to login.");
       navigate("/login"); // Redirect to login if no token
       return;
     }
-else{
+
     axios
       .get("http://localhost:3001/posts", {
         headers: { accessToken: token },
       })
       .then((response) => {
-        setListOfPosts(response.data.listOfPosts);
+        // Sort posts by creation date in descending order
+        const sortedPosts = response.data.listOfPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setListOfPosts(sortedPosts);
         setLikedPosts(response.data.likedPosts.map((like) => like.PostId));
       })
       .catch((error) => {
@@ -35,8 +37,7 @@ else{
           navigate("/login"); // Redirect on 401 error
         }
       });
-    }
-  }, [navigate]);
+  }, [navigate, authState.status]);
 
   // LIKE A POST
   const likeAPost = (postId) => {
@@ -102,7 +103,7 @@ else{
             <div className="footer">
               <div className="username">{value.username}</div>
               <div className="buttons">
-                <ThumbUpAltIcon
+                <Favorite
                   onClick={() => {
                     likeAPost(value.id);
                   }}
