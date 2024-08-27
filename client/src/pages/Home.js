@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useContext} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
+import { AuthContext } from "../helpers/AuthContext";
 
 function Home() {
   const [listOfPosts, setListOfPosts] = useState([]);
   const [likedPosts, setLikedPosts] = useState([]);
   const navigate = useNavigate();
+  const {authState} = useContext(AuthContext);
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
 
     // Check if the token is present
-    if (!token) {
+    if (!authState.status) {
       console.warn("No access token found, redirecting to login.");
       navigate("/login"); // Redirect to login if no token
       return;
     }
-
+else{
     axios
       .get("http://localhost:3001/posts", {
         headers: { accessToken: token },
@@ -33,6 +35,7 @@ function Home() {
           navigate("/login"); // Redirect on 401 error
         }
       });
+    }
   }, [navigate]);
 
   // LIKE A POST
