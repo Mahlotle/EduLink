@@ -32,7 +32,7 @@ function PageNotFound() {
     <div style={containerStyle}>
       <h1 style={headingStyle}>404 - Page Not Found</h1>
       <h3 style={subheadingStyle}>
-        Oops! The page you're looking for doesn't exist.
+        We couldint find the page you looking for.
       </h3>
       <h3 style={subheadingStyle}>
         Go back to the <Link to="/" style={linkStyle}>Home Page</Link>
