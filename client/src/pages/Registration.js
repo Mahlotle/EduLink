@@ -34,7 +34,7 @@ function Registration() {
             autocomplete="off"
             id="inputCreatePost"
             name="username"
-           // placeholder="(Ex. Mav123...)"
+           // placeholder="(e.g Mav123...)"
           />
 
           <label className="regPass">Password: </label>
